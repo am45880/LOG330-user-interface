@@ -1,0 +1,22 @@
+<div id="div_back">
+  <md-card id="md_card_navigation">
+
+    <h2>
+      Authentication
+    </h2>
+
+    <md-input-container>
+      <input mdInput placeholder="Nom d'utilisateur">
+    </md-input-container>
+    <md-input-container>
+      <input mdInput placeholder="Mot de passe" type="password">
+    </md-input-container>
+
+    <div>
+      <button md-button [routerLink]="['/home']" (click)="dialogRef.close()">
+        Connecter
+      </button>
+    </div>
+
+  </md-card>
+</div>

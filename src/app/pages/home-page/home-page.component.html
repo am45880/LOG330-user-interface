@@ -1,0 +1,23 @@
+<div id="div_back">
+  <md-card id="md_card_navigation">
+    <h1>Bienvenue</h1>
+
+    <button md-button [routerLink]="['/gestion_camion']">
+      Gestion de camion
+    </button>
+
+    <button md-button [routerLink]="['/gestion_camionneur']">
+      Gestion de camioneur
+    </button>
+
+    <md-select placeholder="Trajets des cammion">
+      <md-option [routerLink]="['/trajets']">
+        Trajet camion 1
+      </md-option>
+      <md-option [routerLink]="['/trajets']">
+        Trajet camion 2
+      </md-option>
+    </md-select>
+
+  </md-card>
+</div>

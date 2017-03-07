@@ -1,0 +1,25 @@
+<md-toolbar color="primary">
+  <span>
+    <a [routerLink]="['/home']">
+      Road Runner Quest
+    </a>
+  </span>
+  <span class="spacer"></span>
+
+
+  <button md-icon-button [mdMenuTriggerFor]="menu">
+    <md-icon>more_vert</md-icon>
+  </button>
+
+  <md-menu #menu="mdMenu">
+    <button md-menu-item [routerLink]="['/login']">
+      <md-icon>lock</md-icon>
+      <span class="black_span">
+
+          Logout
+
+      </span>
+    </button>
+  </md-menu>
+
+</md-toolbar>
