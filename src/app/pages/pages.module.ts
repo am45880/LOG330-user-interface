@@ -22,6 +22,4 @@ import {StatistiquePageModule} from "./statistique-page/statistique-page.module"
   ]
 })
 
-export class PagesModule {
-
-}
+export class PagesModule {}
