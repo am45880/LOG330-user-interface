@@ -1,0 +1,17 @@
+button {
+  background-color: #673ab7;
+  color: white;
+}
+
+#div_choice{
+  display: flex;
+  justify-content: space-around;
+}
+
+md-card{
+  margin: 0px;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  padding: 0;
+}
