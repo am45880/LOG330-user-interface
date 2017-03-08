@@ -12,14 +12,21 @@
   </button>
 
   <md-menu #menu="mdMenu">
+
+    <button md-menu-item [routerLink]="['/home']">
+      <md-icon>home</md-icon>
+      <span class="black_span">
+          Accueille
+      </span>
+    </button>
+
     <button md-menu-item [routerLink]="['/login']">
       <md-icon>lock</md-icon>
       <span class="black_span">
-
-          Logout
-
+          Déconnecter
       </span>
     </button>
+
   </md-menu>
 
 </md-toolbar>

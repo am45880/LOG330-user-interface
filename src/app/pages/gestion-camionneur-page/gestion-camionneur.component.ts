@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {MdDialog} from "@angular/material";
+import {ConfirmDialogComponent} from "../../shared/components/confirm-dialog/confirm-dialog.component";
 
 @Component({
   selector: 'app-gestion-camionneur',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GestionCamionneurComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dialog: MdDialog) { }
 
   ngOnInit() {
+  }
+  displayConfirmDialog(){
+    this.dialog.open(ConfirmDialogComponent)
   }
 
 }
