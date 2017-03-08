@@ -17,7 +17,7 @@
 
 
     <div>
-      <button md-button (click)="this.camionsService.addToCamions({nom:'lili',marque:'Golfy',plaque:'AVZ-654'})">
+      <button md-button (click)="this.addCamion({nom:'lili',marque:'Golfy',plaque:'AVZ-654'})">
         Ajouter
       </button>
     </div>
@@ -28,7 +28,7 @@
     <h2>Camion : {{camion.nom}}</h2>
     <p>{{camion.marque}}</p>
     <p>{{camion.plaque}}</p>
-    <button md-button (click)="this.camionsService.removeFromCamion(camion)">
+    <button md-button (click)="this.removeCamion(camion)">
       Delete
     </button>
   </md-card>

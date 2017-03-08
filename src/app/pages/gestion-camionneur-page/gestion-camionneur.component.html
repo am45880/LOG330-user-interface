@@ -24,7 +24,7 @@
     </md-input-container>
 
     <div>
-      <button md-button (click)="this.camionneurService.addToCamionneurs({nom:'Debois',prenom:'Joel',utilisateur:'joujou'})">
+      <button md-button (click)="this.addCamion({nom:'Debois',prenom:'Joel',utilisateur:'joujou'})">
         Ajouter
       </button>
     </div>
@@ -34,7 +34,7 @@
   <md-card class="card_camionneur" *ngFor="let camionneur of camionneurs">
     <h2>{{camionneur.prenom}} {{camionneur.nom}}</h2>
     <p>@{{camionneur.utilisateur}}</p>
-    <button md-button (click)="this.camionneurService.removeFromCamionneurs(camionneur)">
+    <button md-button (click)="this.removecamionneur(camionneur)">
       Deletee
     </button>
   </md-card>
