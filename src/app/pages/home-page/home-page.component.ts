@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {CamionsService} from "../../shared/services/camions.service";
 
 @Component({
   selector: 'app-home-page',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomePageComponent implements OnInit {
 
-  constructor() { }
+  camions = []
+
+  constructor(private camionsService: CamionsService) { }
 
   ngOnInit() {
+    this.camions = this.camionsService.camions;
   }
 
 }

@@ -11,11 +11,8 @@
     </button>
 
     <md-select placeholder="Trajets des cammion">
-      <md-option [routerLink]="['/trajets']">
-        Trajet camion 1
-      </md-option>
-      <md-option [routerLink]="['/trajets']">
-        Trajet camion 2
+      <md-option [routerLink]="['/trajets']" *ngFor="let camion of camions">
+        Trajet {{camion.nom}}
       </md-option>
     </md-select>
 

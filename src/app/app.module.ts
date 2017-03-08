@@ -6,6 +6,7 @@ import {PagesModule} from "./pages/pages.module";
 import {SharedModule} from "./shared/shared.module";
 import {RouterModule} from "@angular/router";
 import {NotFoundPageComponent} from "./pages/errors-pages/not-found-page/not-found-page.component";
+import {CamionsService} from "./shared/services/camions.service";
 
 @NgModule({
   declarations: [
@@ -20,7 +21,7 @@ import {NotFoundPageComponent} from "./pages/errors-pages/not-found-page/not-fou
       { path: '**', component: NotFoundPageComponent}
     ])
   ],
-  providers: [],
+  providers:[CamionsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
