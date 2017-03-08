@@ -5,7 +5,7 @@
 }
 
 md-card#add{
-  max-width: 300px;
+  max-width: 80vw;
 }
 
 md-card h1{
@@ -20,6 +20,11 @@ button{
   background-color: #673ab7;
   color: white;
   margin: 15px;
+}
+
+.sebm-google-map-container {
+  height: 80vh;
+  width: 80vw;
 }
 
 
