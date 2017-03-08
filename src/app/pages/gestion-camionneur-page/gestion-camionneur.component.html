@@ -31,21 +31,16 @@
 
   </md-card>
 
-  <md-card class="card_camion" (click)="displayConfirmDialog()">
-    <h2>Jerry Smith</h2>
-    <p>@Jsmitho</p>
+  <md-card class="card_camionneur" (click)="displayConfirmDialog()" *ngFor="let camionneur of camionneurs">
+    <h2>{{camionneur.prenom}} {{camionneur.nom}}</h2>
+    <p>@{{camionneur.utilisateur}}</p>
     <button md-button>
       Delete
     </button>
   </md-card>
 
-  <md-card class="card_camion">
-    <h2>Jerry Smith</h2>
-    <p>@Jsmitho</p>
-    <button md-button (click)="displayConfirmDialog()">
-      Delete
-    </button>
-  </md-card>
+
+
 
 
 </div>

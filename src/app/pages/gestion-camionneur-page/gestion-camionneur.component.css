@@ -20,18 +20,18 @@ md-card#add{
   max-width: 250px;
 }
 
-.card_camion{
-  height: 120px;
-  width: 150px;
+.card_camionneur{
+  width: 190px;
+  height: 135px;
   margin: 15px;
 }
 
-.card_camion p{
+.card_camionneur p{
   color: grey;
   margin: 7px;
 }
 
-.card_camion button {
+.card_camionneur button {
   color: white;
   background-color: red;
   margin: 7px;

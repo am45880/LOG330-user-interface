@@ -8,7 +8,11 @@
     </md-input-container>
 
     <md-input-container>
-      <input mdInput placeholder="Numéro">
+      <input mdInput placeholder="Marque">
+    </md-input-container>
+
+    <md-input-container>
+      <input mdInput placeholder="Plaque">
     </md-input-container>
 
 
@@ -20,23 +24,13 @@
 
   </md-card>
 
-  <md-card class="card_camion">
-    <h2>Camion BMW</h2>
-    <p>#124123</p>
+  <md-card class="card_camionneur" *ngFor="let camion of camions">
+    <h2>Camion : {{camion.nom}}</h2>
+    <p>{{camion.marque}}</p>
+    <p>{{camion.plaque}}</p>
     <button md-button (click)="displayConfirmDialog()">
       Delete
     </button>
   </md-card>
-
-  <md-card class="card_camion">
-    <h2>Camion BMW</h2>
-    <p>#124123</p>
-    <button md-button (click)="displayConfirmDialog()">
-      Delete
-    </button>
-  </md-card>
-
-
-  <!--<app-confirm-dialog></app-confirm-dialog>-->
 
 </div>
