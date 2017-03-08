@@ -4,15 +4,15 @@
     <h1>Gestion de camionneur</h1>
 
     <md-input-container>
-      <input mdInput placeholder="Nom">
+      <input mdInput placeholder="Nom" #nom>
     </md-input-container>
 
     <md-input-container>
-      <input mdInput placeholder="Prénom">
+      <input mdInput placeholder="Prénom" #prenom>
     </md-input-container>
 
     <md-input-container>
-      <input mdInput placeholder="Nom d'utilisateur">
+      <input mdInput placeholder="Nom d'utilisateur" #utilisateur>
     </md-input-container>
 
     <md-input-container>
@@ -24,7 +24,7 @@
     </md-input-container>
 
     <div>
-      <button md-button (click)="this.addCamion({nom:'Debois',prenom:'Joel',utilisateur:'joujou'})">
+      <button md-button (click)="this.addCamionneur({nom:nom.value,prenom:prenom.value,utilisateur:utilisateur.value})">
         Ajouter
       </button>
     </div>

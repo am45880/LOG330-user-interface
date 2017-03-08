@@ -5,7 +5,8 @@
 }
 
 md-card#add{
-  max-width: 80vw;
+  max-width: 19vw;
+  min-width: 15vw ;
 }
 
 md-card h1{
@@ -24,7 +25,7 @@ button{
 
 .sebm-google-map-container {
   height: 80vh;
-  width: 80vw;
+  width: 75vw;
 }
 
 

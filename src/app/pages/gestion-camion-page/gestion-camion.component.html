@@ -4,20 +4,20 @@
     <h1>Gestion de camion</h1>
 
     <md-input-container>
-      <input mdInput placeholder="Nom">
+      <input mdInput placeholder="Nom" #nom>
     </md-input-container>
 
     <md-input-container>
-      <input mdInput placeholder="Marque">
+      <input mdInput placeholder="Marque" #marque>
     </md-input-container>
 
     <md-input-container>
-      <input mdInput placeholder="Plaque">
+      <input mdInput placeholder="Plaque" #plaque>
     </md-input-container>
 
 
     <div>
-      <button md-button (click)="this.addCamion({nom:'lili',marque:'Golfy',plaque:'AVZ-654'})">
+      <button md-button (click)="this.addCamion({nom:nom.value,marque:marque.value,plaque:plaque.value})">
         Ajouter
       </button>
     </div>

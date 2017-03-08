@@ -7,7 +7,7 @@ export class CamionsService {
   private _camions:Camion[] = [
     {nom:"Gros",marque:"Mercedes",plaque:"PXG-347"},
     {nom:"Nouriture",marque:"Toyota",plaque:"PXG-347"},
-    {nom:"Sargui",marque:"",plaque:"PXG-347"}
+    {nom:"Sargui",marque:"Ford",plaque:"PXG-347"}
   ];
 
   addToCamionneurs(camion:Camion){
