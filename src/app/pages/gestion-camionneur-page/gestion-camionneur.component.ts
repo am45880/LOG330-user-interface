@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {MdDialog} from "@angular/material";
 import {ConfirmDialogComponent} from "../../shared/components/confirm-dialog/confirm-dialog.component";
+import {CamionneursService} from "../../shared/services/camionneurs.service";
 
 @Component({
   selector: 'app-gestion-camionneur',
@@ -9,16 +10,14 @@ import {ConfirmDialogComponent} from "../../shared/components/confirm-dialog/con
 })
 export class GestionCamionneurComponent implements OnInit {
 
-  camionneurs= [
-    {nom:"Smith",prenom:"Jerry", utilisateur:"jsmith"},
-    {nom:"Leblanc",prenom:"Felix", utilisateur:"camio_champion"},
-    {nom:"Tramblay",prenom:"George", utilisateur:"tamtamou"}
-  ]
+  camionneurs= [] ;
 
-  constructor(public dialog: MdDialog) { }
+  constructor(public dialog: MdDialog, public camionneurService: CamionneursService) { }
 
   ngOnInit() {
+    this.camionneurs= this.camionneurService.camionneurs
   }
+
   displayConfirmDialog(){
     this.dialog.open(ConfirmDialogComponent)
   }

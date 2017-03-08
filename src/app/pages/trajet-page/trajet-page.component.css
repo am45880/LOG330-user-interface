@@ -1,4 +1,25 @@
+#div_back{
+  display: flex;
+  width: 100%;
+  min-height: 90vh;
+}
+
+md-card#add{
+  max-width: 300px;
+}
+
+md-card h1{
+  margin: 15px;
+}
+
+md-card .md_point_livraison{
+  margin-top: 15px;
+}
+
 button{
   background-color: #673ab7;
   color: white;
+  margin: 15px;
 }
+
+

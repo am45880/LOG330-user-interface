@@ -10,7 +10,7 @@
       Gestion de camioneur
     </button>
 
-    <md-select placeholder="Trajets des cammion">
+    <md-select placeholder="Trajets des camions">
       <md-option [routerLink]="['/trajets']" *ngFor="let camion of camions">
         Trajet {{camion.nom}}
       </md-option>

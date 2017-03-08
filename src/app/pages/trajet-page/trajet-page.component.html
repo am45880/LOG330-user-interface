@@ -1,5 +1,59 @@
-<md-card>
-  <button md-button [routerLink]="['/statistique']">
-    Statistiques
-  </button>
-</md-card>
+<div id="div_back">
+
+    <md-card id="add">
+
+      <h1>Points de livraison</h1>
+
+      <md-card class="md_point_livraison">
+        <h3>Point 1</h3>
+        <md-input-container>
+          <input mdInput placeholder="Objet">
+        </md-input-container>
+        <md-input-container>
+          <input mdInput placeholder="Code Postal">
+        </md-input-container>
+        <md-input-container>
+          <input mdInput placeholder="Heure(hh:mm)">
+        </md-input-container>
+      </md-card>
+
+      <md-card class="md_point_livraison">
+        <h3>Point 2</h3>
+        <md-input-container>
+          <input mdInput placeholder="Objet">
+        </md-input-container>
+        <md-input-container>
+          <input mdInput placeholder="Code Postal">
+        </md-input-container>
+        <md-input-container>
+          <input mdInput placeholder="Heure(hh:mm)">
+        </md-input-container>
+      </md-card>
+
+      <md-card class="md_point_livraison">
+        <h3>Point 3</h3>
+        <md-input-container>
+          <input mdInput placeholder="Objet">
+        </md-input-container>
+        <md-input-container>
+          <input mdInput placeholder="Code Postal">
+        </md-input-container>
+        <md-input-container>
+          <input mdInput placeholder="Heure(hh:mm)">
+        </md-input-container>
+      </md-card>
+
+
+      <div>
+        <button md-button >
+          Ajouter
+        </button>
+        <button md-button [routerLink]="['/statistique']">
+          Statistiques
+        </button>
+
+      </div>
+
+    </md-card>
+
+</div>
