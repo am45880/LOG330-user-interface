@@ -2,26 +2,31 @@
   <md-card id="add">
 
     <h1>Gestion de camion</h1>
+    <form #form="ngForm" (submit)="this.addCamion({nom:nom.value,marque:marque.value,plaque:plaque.value})">
+      <div>
+        <md-input-container [class.has-error]="nom.invalid && nom.touched">
+          <input mdInput placeholder="Nom" ngModel="nom" required name="nom" #nom="ngModel">
+        </md-input-container>
+        <label class="lbl_invalid_msg" *ngIf="nom.invalid && nom.touched">Entrée invalid</label>
 
-    <md-input-container>
-      <input mdInput placeholder="Nom" #nom>
-    </md-input-container>
-
-    <md-input-container>
-      <input mdInput placeholder="Marque" #marque>
-    </md-input-container>
-
-    <md-input-container>
-      <input mdInput placeholder="Plaque" #plaque>
-    </md-input-container>
+        <md-input-container>
+          <input mdInput placeholder="Marque" name="marque" #marque="ngModel" ngModel="marque" required >
+        </md-input-container>
+        <label class="lbl_invalid_msg" *ngIf="marque.invalid && marque.touched">Entrée invalid</label>
+        <md-input-container>
+          <input mdInput placeholder="Plaque" ngModel="plaque" required name="plaque" #plaque>
+        </md-input-container>
+        <label class="lbl_invalid_msg" *ngIf="nom.invalid && nom.touched">Entrée invalid</label>
 
 
-    <div>
-      <button md-button (click)="this.addCamion({nom:nom.value,marque:marque.value,plaque:plaque.value})">
-        Ajouter
-      </button>
-    </div>
-
+        <div>
+          <button [disabled]="nom.valid && marque.valid && plaque.valid" type="submit" md-button>
+            Ajouter
+          </button>
+        </div>
+        <span>{{form.value|json}}</span>
+      </div>
+    </form>
   </md-card>
 
   <md-card class="card_camionneur" *ngFor="let camion of camions">

@@ -5,11 +5,13 @@ import {MaterialModule} from "@angular/material";
 import {RouterModule} from "@angular/router";
 import {SharedModule} from "../../shared/shared.module";
 import {ConfirmDialogComponent} from "../../shared/components/confirm-dialog/confirm-dialog.component";
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   imports: [
     CommonModule,
     MaterialModule,
+    FormsModule,
     RouterModule.forChild([
       {path:"gestion_camion" , component:GestionCamionComponent}
     ]),
