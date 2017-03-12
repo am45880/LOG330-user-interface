@@ -1,53 +1,68 @@
-<div id="div_back">
+<md-card  id="card_add_point">
 
-    <md-card id="add">
+  <md-card class="md-card_Point">
+    <form action="" class="stretched_form">
+      <h2>Point 1</h2>
 
-      <h1>Points de livraison</h1>
+      <md-input-container>
+        <input mdInput placeholder="Objet">
+      </md-input-container>
 
-      <md-card class="md_point_livraison">
-        <h3>Point 1</h3>
-        <md-input-container>
-          <input mdInput placeholder="Objet">
-        </md-input-container>
-        <md-input-container>
-          <input mdInput placeholder="Code Postal">
-        </md-input-container>
-        <md-input-container>
-          <input mdInput placeholder="Heure(hh:mm)">
-        </md-input-container>
-      </md-card>
+      <md-input-container>
+        <input mdInput placeholder="Code postal">
+      </md-input-container>
 
-      <md-card class="md_point_livraison">
-        <h3>Point 2</h3>
-        <md-input-container>
-          <input mdInput placeholder="Objet">
-        </md-input-container>
-        <md-input-container>
-          <input mdInput placeholder="Code Postal">
-        </md-input-container>
-        <md-input-container>
-          <input mdInput placeholder="Heure(hh:mm)">
-        </md-input-container>
-      </md-card>
+      <md-input-container>
+        <input mdInput placeholder="Heure(hh:mm)">
+      </md-input-container>
 
-      <div>
-        <button md-button>
-          Ajouter
-        </button>
-        <button md-button [routerLink]="['/statistique']">
-          Statistiques
-        </button>
-      </div>
+      <button md-button class="boutonMauve">
+        Sauvegarder
+      </button>
 
-    </md-card>
+      <button md-button class="btn_delete">
+        Supprimer
+      </button>
+    </form>
+  </md-card>
 
-    <md-card>
+  <md-card class="md-card_Point">
+    <form action="" class="stretched_form">
+      <h2>Point 1</h2>
 
-      <!-- this creates a google map on the page with the given lat/lng from -->
-      <!-- the component as the initial center of the map: -->
+      <md-input-container>
+        <input mdInput placeholder="Objet">
+      </md-input-container>
 
-      <sebm-google-map [latitude]="lat" [longitude]="lng">
-        <sebm-google-map-marker [latitude]="lat" [longitude]="lng"></sebm-google-map-marker>
-      </sebm-google-map>
-    </md-card>
-</div>
+      <md-input-container>
+        <input mdInput placeholder="Code postal">
+      </md-input-container>
+
+      <md-input-container>
+        <input mdInput placeholder="Heure(hh:mm)">
+      </md-input-container>
+
+      <button md-button class="boutonMauve">
+        Sauvegarder
+      </button>
+
+      <button md-button class="btn_delete">
+        Supprimer
+      </button>
+    </form>
+  </md-card>
+
+  <div id="btns_option_ajout_et_statistique">
+    <button style="width: 30%" md-button class="boutonMauve">Ajouter un point</button>
+    <button style="width: 30%" md-button class="boutonMauve">Statistiques</button>
+  </div>
+
+</md-card>
+
+<md-card id="card_back_google_map">
+
+  <sebm-google-map [latitude]="lat" [longitude]="lng">
+  <sebm-google-map-marker [latitude]="lat" [longitude]="lng"></sebm-google-map-marker>
+  </sebm-google-map>
+</md-card>
+

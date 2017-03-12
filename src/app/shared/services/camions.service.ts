@@ -1,13 +1,14 @@
+
 import { Injectable } from '@angular/core';
 import {Camion} from "../models/camion.model";
 
 @Injectable()
-export class CamionsService {
+export class CamionsService{
 
   private _camions:Camion[] = [
-    {nom:"Gros",marque:"Mercedes",plaque:"PXG-347"},
-    {nom:"Nouriture",marque:"Toyota",plaque:"PXG-347"},
-    {nom:"Sargui",marque:"Ford",plaque:"PXG-347"}
+    {nom:"Gros",marque:"Mercedes",plaque:"PXG-347",trajet:null},
+    {nom:"Nouriture",marque:"Toyota",plaque:"PXG-347",trajet:null},
+    {nom:"Sargui",marque:"Ford",plaque:"PXG-347",trajet:null}
   ];
 
   addToCamionneurs(camion:Camion){

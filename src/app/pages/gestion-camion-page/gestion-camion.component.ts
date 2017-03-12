@@ -13,7 +13,8 @@ export class GestionCamionComponent implements OnInit {
 
    camions:Camion[] = [];
 
-  constructor(public dialog: MdDialog, private camionsService: CamionsService) { }
+  constructor(public dialog: MdDialog, private camionsService: CamionsService) {
+  }
 
   ngOnInit() {
     this.camions = this.camionsService.camions;

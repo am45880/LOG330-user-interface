@@ -1,41 +1,40 @@
-<div id="div_back">
-  <md-card id="add">
+<md-card id="card_add_point" >
+  <form class="stretched_form" (submit)="addCamionneur({nom:nom.value,prenom:prenom.value,utilisateur:utilisateur.value})">
+      <h1>Gestion de camionneur</h1>
 
-    <h1>Gestion de camionneur</h1>
+      <md-input-container>
+        <input mdInput placeholder="Nom" #nom>
+      </md-input-container>
 
-    <md-input-container>
-      <input mdInput placeholder="Nom" #nom>
-    </md-input-container>
+      <md-input-container>
+        <input mdInput placeholder="Prénom" #prenom>
+      </md-input-container>
 
-    <md-input-container>
-      <input mdInput placeholder="Prénom" #prenom>
-    </md-input-container>
+      <md-input-container>
+        <input mdInput placeholder="Nom d'utilisateur" #utilisateur>
+      </md-input-container>
 
-    <md-input-container>
-      <input mdInput placeholder="Nom d'utilisateur" #utilisateur>
-    </md-input-container>
+      <md-input-container>
+        <input mdInput placeholder="Mot de passe" type="password">
+      </md-input-container>
 
-    <md-input-container>
-      <input mdInput placeholder="Mot de passe" type="password">
-    </md-input-container>
+      <md-input-container>
+        <input mdInput placeholder="Confirmer mot de passe" type="password">
+      </md-input-container>
 
-    <md-input-container>
-      <input mdInput placeholder="Confirmer mot de passe" type="password">
-    </md-input-container>
+    <button class="boutonMauve" md-button type="submit">
+      Ajouter
+    </button>
+  </form>
+</md-card>
 
-    <div>
-      <button md-button (click)="this.addCamionneur({nom:nom.value,prenom:prenom.value,utilisateur:utilisateur.value})">
-        Ajouter
-      </button>
-    </div>
-  <!--TEST-->
-  </md-card>
-  <md-card class="card_camionneur" *ngFor="let camionneur of camionneurs">
+<md-card id="card_back_google_map">
+  <md-card *ngFor="let camionneur of camionneurs">
     <h2>{{camionneur.prenom}} {{camionneur.nom}}</h2>
     <p>@{{camionneur.utilisateur}}</p>
-    <button md-button (click)="this.removecamionneur(camionneur)">
+    <button md-button class="btn_delete" (click)="removecamionneur(camionneur)">
       Deletee
     </button>
   </md-card>
+</md-card>
 
-</div>

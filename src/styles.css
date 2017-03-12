@@ -1,15 +1,18 @@
 @import '~@angular/material/core/theming/prebuilt/deeppurple-amber.css';
 
-.spacer {
-  -webkit-box-flex: 1;
-  -ms-flex: 1 1 auto;
-  flex: 1 1 auto;
-}
-
 body{
   margin: 0;
 }
 
-a{
-  color: black;
+.lbl_invalid_msg{
+  font-size: 10px;
+  color: red;
+  float: right;
+}
+
+.stretched_form{
+  display: flex;
+  flex-flow: column wrap;
+  align-items: stretch;
+  text-align: center;
 }

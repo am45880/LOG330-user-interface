@@ -1,31 +1,45 @@
-#div_back{
-  display: flex;
-  width: 100%;
-  min-height: 90vh;
+/*---Card pour ajouter des Points---*/
+#card_add_point{
+  float:left;
+  min-height: 91vh;
+  width: 20%;
 }
 
-md-card#add{
-  max-width: 19vw;
-  min-width: 15vw ;
+.md-card_Point{
+  margin-bottom: 20px;
 }
 
-md-card h1{
-  margin: 15px;
+.boutonMauve{
+  background-color: #673ab7;
+  color: white;
 }
 
-md-card .md_point_livraison{
-  margin-top: 15px;
+.btn_delete{
+  background-color: red;
+  color:white;
 }
 
 button{
-  background-color: #673ab7;
-  color: white;
-  margin: 15px;
+  margin-bottom: 15px;
+}
+
+#btns_option_ajout_et_statistique{
+  display: flex;
+  justify-content: space-around;
+}
+
+/*----Section de la map----*/
+
+#card_back_google_map{
+  display:flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  min-height: 91vh;
+  flex-wrap: wrap;
 }
 
 .sebm-google-map-container {
-  height: 80vh;
-  width: 75vw;
+height: 90vh;
+width: 75vw;
 }
-
 

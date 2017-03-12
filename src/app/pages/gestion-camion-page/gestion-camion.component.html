@@ -1,41 +1,37 @@
-<div id="div_back">
-  <md-card id="add">
+<md-card id="card_add_point">
+
+  <form class="stretched_form" (submit)="addCamion({nom:nom.value,marque:marque.value,plaque:plaque.value})">
 
     <h1>Gestion de camion</h1>
-    <form #form="ngForm" (submit)="this.addCamion({nom:nom.value,marque:marque.value,plaque:plaque.value})">
-      <div>
-        <md-input-container [class.has-error]="nom.invalid && nom.touched">
-          <input mdInput placeholder="Nom" ngModel="nom" required name="nom" #nom="ngModel">
-        </md-input-container>
-        <label class="lbl_invalid_msg" *ngIf="nom.invalid && nom.touched">Entrée invalid</label>
 
-        <md-input-container>
-          <input mdInput placeholder="Marque" name="marque" #marque="ngModel" ngModel="marque" required >
-        </md-input-container>
-        <label class="lbl_invalid_msg" *ngIf="marque.invalid && marque.touched">Entrée invalid</label>
-        <md-input-container>
-          <input mdInput placeholder="Plaque" ngModel="plaque" required name="plaque" #plaque>
-        </md-input-container>
-        <label class="lbl_invalid_msg" *ngIf="nom.invalid && nom.touched">Entrée invalid</label>
+    <md-input-container>
+      <input mdInput placeholder="Nom" #nom>
+    </md-input-container>
+
+    <md-input-container>
+      <input mdInput placeholder="Marque" #marque >
+    </md-input-container>
+
+    <md-input-container>
+      <input mdInput placeholder="Plaque" #plaque>
+    </md-input-container>
+
+    <button class="boutonMauve" type="submit" md-button>
+      Ajouter
+    </button>
+
+  </form>
+
+</md-card>
 
 
-        <div>
-          <button [disabled]="nom.valid && marque.valid && plaque.valid" type="submit" md-button>
-            Ajouter
-          </button>
-        </div>
-        <span>{{form.value|json}}</span>
-      </div>
-    </form>
-  </md-card>
-
-  <md-card class="card_camionneur" *ngFor="let camion of camions">
+<md-card id="card_back_google_map">
+  <md-card *ngFor="let camion of camions">
     <h2>Camion : {{camion.nom}}</h2>
-    <p>{{camion.marque}}</p>
-    <p>{{camion.plaque}}</p>
-    <button md-button (click)="this.removeCamion(camion)">
+    <p>Marque : {{camion.marque}}</p>
+    <p>Plaque : {{camion.plaque}}</p>
+    <button class="btn_delete" md-button (click)="this.removeCamion(camion)">
       Delete
     </button>
   </md-card>
-
-</div>
+</md-card>

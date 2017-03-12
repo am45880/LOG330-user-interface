@@ -15,6 +15,6 @@ import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dial
     ])
   ],
   declarations: [NavBarComponent, ConfirmDialogComponent],
-  exports : [NavBarComponent,ConfirmDialogComponent]
+  exports : [NavBarComponent,ConfirmDialogComponent],
 })
 export class SharedModule { }

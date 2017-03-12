@@ -1,43 +1,26 @@
-#div_back{
-  display: flex;
-  width: 100%;
-  height: 90vh;
-
+/*---Card pour ajouter des camions---*/
+#card_add_point{
+  float:left;
+  height: 91vh;
+  width: 20%;
 }
 
-md-card h1{
-  text-align: center;
-  margin: 15px;
-}
-
-button{
+.boutonMauve{
   background-color: #673ab7;
   color: white;
-  display: block;
-  margin: 15px;
 }
 
-md-card#add{
-  max-width: 250px;
+/*----Section des camions ajoutés----*/
+
+#card_back_google_map{
+  display:flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  height: 91vh;
+  flex-wrap: wrap;
 }
 
-.card_camionneur{
-  width: 170px;
-  height: 170px;
-  margin: 15px;
-}
-
-.card_camionneur p{
-  color: grey;
-  margin: 7px;
-}
-
-.card_camionneur button {
-  color: white;
+.btn_delete{
   background-color: red;
-  margin: 7px;
-}
-
-.lbl_invalid_msg{
-  color: red;
+  color:white;
 }
