@@ -1,52 +1,26 @@
 <md-card  id="card_add_point">
 
-  <md-card class="md-card_Point">
+  <md-card class="md-card_Point" *ngFor="let point of this.camion.trajet">
     <form action="" class="stretched_form">
-      <h2>Point 1</h2>
+      <h2>Point {{point.ordre}} {{this.urlParameter}}</h2>
 
       <md-input-container>
-        <input mdInput placeholder="Objet">
+        <input mdInput placeholder="Article" [value]="point.article">
       </md-input-container>
 
       <md-input-container>
-        <input mdInput placeholder="Code postal">
+        <input mdInput placeholder="Code postal" [value]="point.codePostal">
       </md-input-container>
 
       <md-input-container>
-        <input mdInput placeholder="Heure(hh:mm)">
+        <input mdInput placeholder="Temps estimé (hh:mm)" [value]="point.tempsEstime">
       </md-input-container>
 
       <button md-button class="boutonMauve">
         Sauvegarder
       </button>
 
-      <button md-button class="btn_delete">
-        Supprimer
-      </button>
-    </form>
-  </md-card>
-
-  <md-card class="md-card_Point">
-    <form action="" class="stretched_form">
-      <h2>Point 1</h2>
-
-      <md-input-container>
-        <input mdInput placeholder="Objet">
-      </md-input-container>
-
-      <md-input-container>
-        <input mdInput placeholder="Code postal">
-      </md-input-container>
-
-      <md-input-container>
-        <input mdInput placeholder="Heure(hh:mm)">
-      </md-input-container>
-
-      <button md-button class="boutonMauve">
-        Sauvegarder
-      </button>
-
-      <button md-button class="btn_delete">
+      <button md-button class="btn_delete" (click)="removePointDeTrajet(point)">
         Supprimer
       </button>
     </form>

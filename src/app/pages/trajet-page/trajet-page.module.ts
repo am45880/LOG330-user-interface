@@ -16,7 +16,7 @@ import {ReactiveFormsModule, FormsModule} from "@angular/forms";
       apiKey:'AIzaSyArHxPHuvHILhyVyje6aA0mwpNIrD0BLtM'
     }),
     RouterModule.forChild([
-      {path:"trajets",component:TrajetPageComponent}
+      {path:"trajets/:camion",component:TrajetPageComponent}
     ])
   ],
   declarations: [TrajetPageComponent]
