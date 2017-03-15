@@ -10,11 +10,18 @@
       Gestion de camioneur
     </button>
 
-    <md-select placeholder="Trajets des camions">
-      <md-option [routerLink]="['/trajets']" *ngFor="let camion of camions">
+    <md-select placeholder="camion des camions" [(ngModel)]="selectedValue" name="camionSelected">
+      <md-option *ngFor="let camion of camions" (click)="goToPage(camion.nom)" [value]="camion.nom">
         Trajet {{camion.nom}}
       </md-option>
     </md-select>
+
+    <md-input-container>
+      <input mdInput type="text" [(ngModel)]="petitMot">
+    </md-input-container>
+
+    <p>{{selectedValue}}</p>
+    <p> {{petitMot}}</p>
 
   </md-card>
 

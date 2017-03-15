@@ -3,6 +3,7 @@ import {MdDialog} from "@angular/material";
 import {ConfirmDialogComponent} from "../../shared/components/confirm-dialog/confirm-dialog.component";
 import {CamionneursService} from "../../shared/services/camionneurs.service";
 import {Camionneur} from "../../shared/models/camionneur.model";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-gestion-camionneur',
@@ -13,7 +14,7 @@ export class GestionCamionneurComponent implements OnInit {
 
   camionneurs:Camionneur[]= [] ;
 
-  constructor(public dialog: MdDialog, public camionneurService: CamionneursService) { }
+  constructor(private activate:ActivatedRoute,public dialog: MdDialog, public camionneurService: CamionneursService) { }
 
   ngOnInit() {
     this.camionneurs= this.camionneurService.camionneurs
@@ -31,5 +32,7 @@ export class GestionCamionneurComponent implements OnInit {
   displayConfirmDialog(){
     this.dialog.open(ConfirmDialogComponent)
   }
+
+
 
 }

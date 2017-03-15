@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {CamionsService} from "../../shared/services/camions.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-home-page',
@@ -10,10 +11,13 @@ export class HomePageComponent implements OnInit {
 
   camions = []
 
-  constructor(private camionsService: CamionsService) { }
+  constructor(private camionsService: CamionsService, private router:Router) { }
 
   ngOnInit() {
     this.camions = this.camionsService.camions;
   }
 
+  goToPage(url:string){
+    this.router.navigate(["/trajets/"+url]);
+  }
 }
