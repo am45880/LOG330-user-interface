@@ -29,7 +29,10 @@ export class TrajetPageComponent implements OnInit {
   }
 
   ajouterPointDetrajet(){
-    
+    this.camion.trajet.push({article:null,codePostal:null,tempsEstime:null,ordre:this.camion.trajet.length+1});
   }
 
+  savePoin(point:PointTrajet){
+    console.log(point);
+  }
 }

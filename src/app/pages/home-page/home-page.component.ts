@@ -20,4 +20,6 @@ export class HomePageComponent implements OnInit {
   goToPage(url:string){
     this.router.navigate(["/trajets/"+url]);
   }
+
+
 }
