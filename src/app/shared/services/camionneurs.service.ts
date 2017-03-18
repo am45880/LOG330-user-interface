@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
 import {Camionneur} from "../models/camionneur.model";
+import {map} from "rxjs/operator/map";
+import {Http} from "@angular/http";
+import {Observable} from "rxjs";
 
 
 @Injectable()
@@ -11,7 +14,7 @@ export class CamionneursService {
     {nom:"Tramblay",prenom:"George", utilisateur:"tamtamou"}
   ];
 
-  constructor() { }
+  constructor(private _http:Http) { }
 
   addToCamionneurs(camionneur:Camionneur){
     this._camionneurs.push(camionneur)
@@ -23,6 +26,13 @@ export class CamionneursService {
 
   get camionneurs(): Camionneur[] {
     return this._camionneurs;
+  }
+
+  getCamionneurFromAPI(){
+    console.log("wesh");
+    return this._http.get('http://localhost:8080/')
+      .do(x => console.log(x.json()))
+      .map(receved => receved.json());
   }
 
 }

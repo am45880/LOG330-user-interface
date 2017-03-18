@@ -21,18 +21,22 @@ export class TrajetPageComponent implements OnInit {
 
   ngOnInit() {
     this.urlParameter=this._route.snapshot.params['camion'];
+
     this.camion= this.camionsService.camions.filter(item => item.nom== this.urlParameter )[0];
   }
 
   removePointDeTrajet(point:PointTrajet){
-    this.camion.trajet.splice(this.camion.trajet.indexOf(point),1);
+
+    this.camionsService.removePointFromCamion(this.camion,point);
   }
 
   ajouterPointDetrajet(){
+    //console.log("ajouter");
     this.camion.trajet.push({article:null,codePostal:null,tempsEstime:null,ordre:this.camion.trajet.length+1});
   }
 
-  savePoin(point:PointTrajet){
-    console.log(point);
+  savePoint(point:PointTrajet){
+    this.camionsService.updatePointFromCamion(this.camion,point);
+    console.log("Article : "+point.article);
   }
 }

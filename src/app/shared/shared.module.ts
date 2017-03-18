@@ -5,11 +5,13 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import {MaterialModule} from "@angular/material";
 import {RouterModule} from "@angular/router";
 import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
+import {HttpModule} from "@angular/http";
 
 @NgModule({
   imports: [
     CommonModule,
     MaterialModule,
+    HttpModule,
     RouterModule.forChild([
       { path:'my_account', redirectTo:'/my_account'}
     ])

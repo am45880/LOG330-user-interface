@@ -13,11 +13,18 @@ import {ActivatedRoute} from "@angular/router";
 export class GestionCamionneurComponent implements OnInit {
 
   camionneurs:Camionneur[]= [] ;
+  camionneursAPI:Camionneur[]= [] ;
 
   constructor(private activate:ActivatedRoute,public dialog: MdDialog, public camionneurService: CamionneursService) { }
 
   ngOnInit() {
-    this.camionneurs= this.camionneurService.camionneurs
+    this.camionneurs= this.camionneurService.camionneurs;
+    this.camionneurService.getCamionneurFromAPI().subscribe(
+      res=> this.camionneursAPI = res,
+      err => console.log("une erreur kho")
+    );
+
+    // console.log("Voila premier camioneur " + this.camionneursAPI[0].prenom);
   }
 
   removecamionneur(camionneur:Camionneur){
