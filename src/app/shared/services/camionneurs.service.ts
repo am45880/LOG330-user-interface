@@ -23,9 +23,9 @@ export class CamionneursService {
   //   return this._camionneurs;
   // }
 
-  getAllCamionneurFromAPI(){
-    return this._http.get('http://localhost:8080/camionneur/all')
-      .map(res => res = res.json())
-  }
+  // getAllCamionneurFromAPI(){
+  //   return this._http.get('http://localhost:8080/camionneur/all')
+  //     .map(res => res = res.json())
+  // }
 
 }

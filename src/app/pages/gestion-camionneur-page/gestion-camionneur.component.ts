@@ -12,15 +12,22 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class GestionCamionneurComponent implements OnInit {
 
-  camionneurs:Camionneur[]= [] ;
+
   camionneursAPI;
+
+
+ private camionneurs:Camionneur[] = [
+    {nom:"Smith",prenom:"Jerry", utilisateur:"jsmith",motDePasse:"secret123"},
+    {nom:"Leblanc",prenom:"Felix", utilisateur:"camio_champion",motDePasse:"secret123"},
+   {nom:"Tremblay",prenom:"George", utilisateur:"tamtamou",motDePasse:"secret123"}
+  ];
 
   constructor(private activate:ActivatedRoute,public dialog: MdDialog, public camionneurService: CamionneursService) { }
 
   ngOnInit() {
-    this.camionneursAPI = this.camionneurService.getAllCamionneurFromAPI().subscribe(
-      res => this.camionneurs = res
-    );
+    // this.camionneursAPI = this.camionneurService.getAllCamionneurFromAPI().subscribe(
+    //   res => this.camionneurs = res
+    // );
   }
 
   // removecamionneur(camionneur:Camionneur){
