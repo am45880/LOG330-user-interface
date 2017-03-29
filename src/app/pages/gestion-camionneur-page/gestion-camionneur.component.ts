@@ -12,30 +12,30 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class GestionCamionneurComponent implements OnInit {
 
-  camionneurs:Camionneur[]= [] ;
-  camionneursAPI;
+  camionneurs:Camionneur[]=[];
+
 
   constructor(private activate:ActivatedRoute,public dialog: MdDialog, public camionneurService: CamionneursService) { }
 
   ngOnInit() {
-    this.camionneursAPI = this.camionneurService.getAllCamionneurFromAPI().subscribe(
+    this.displayCamionneur();
+  }
+
+  displayCamionneur(){
+    this.camionneurService.getAllCamionneurFromAPI().subscribe(
       res => this.camionneurs = res
     );
   }
 
-  // removecamionneur(camionneur:Camionneur){
-  //   this.dialog.open(ConfirmDialogComponent);
-  //   this.camionneurService.removeFromCamionneurs(camionneur);
-  // }
-  //
-  // addCamionneur(camionneur:Camionneur){
-  //   this.camionneurService.addToCamionneurs(camionneur)
-  // }
-  //
-  // displayConfirmDialog(){
-  //   this.dialog.open(ConfirmDialogComponent)
-  // }
+  creerNouveauCamionneur(camionneur:Camionneur) {
+    console.log("Creer nouveau camionneur");
+    this.camionneurService.postNewCamionneurToAPI(camionneur);
+    this.displayCamionneur();
+  }
 
+  removeCamionneur(camionneur:Camionneur){
+    this.camionneurService.deleteCamionneurFromAPI(camionneur.utilisateur);
+  }
 
 
 }
