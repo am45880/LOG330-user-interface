@@ -10,7 +10,7 @@
 }
 
 /*Card des camionneur*/
-#card_back_google_map{
+#card_back_les_camions{
   display:flex;
   justify-content: space-around;
   align-items: flex-start;

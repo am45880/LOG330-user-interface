@@ -8,31 +8,24 @@ import {Observable} from "rxjs";
 @Injectable()
 export class CamionneursService {
 
-  private _camionneurs:Camionneur[] = [
-    {nom:"Smith",prenom:"Jerry", utilisateur:"jsmith"},
-    {nom:"Leblanc",prenom:"Felix", utilisateur:"camio_champion"},
-    {nom:"Tramblay",prenom:"George", utilisateur:"tamtamou"}
-  ];
-
-  constructor(private _http:Http) { }
-
-  addToCamionneurs(camionneur:Camionneur){
-    this._camionneurs.push(camionneur)
+  constructor(private _http:Http) {
   }
 
-  removeFromCamionneurs(camionneur:Camionneur){
-    this._camionneurs.splice(this._camionneurs.indexOf(camionneur),1)
-  }
+  // addToCamionneurs(camionneur:Camionneur){
+  //   this._camionneurs.push(camionneur)
+  // }
 
-  get camionneurs(): Camionneur[] {
-    return this._camionneurs;
-  }
+  // removeFromCamionneurs(camionneur:Camionneur){
+  //   this._camionneurs.splice(this._camionneurs.indexOf(camionneur),1)
+  // }
 
-  getCamionneurFromAPI(){
-    console.log("wesh");
-    return this._http.get('http://localhost:8080/')
-      .do(x => console.log(x.json()))
-      .map(receved => receved.json());
+  // get camionneurs(): Camionneur[] {
+  //   return this._camionneurs;
+  // }
+
+  getAllCamionneurFromAPI(){
+    return this._http.get('http://localhost:8080/camionneur/all')
+      .map(res => res = res.json())
   }
 
 }

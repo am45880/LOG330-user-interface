@@ -21,4 +21,6 @@ import {ReactiveFormsModule, FormsModule} from "@angular/forms";
   ],
   declarations: [TrajetPageComponent]
 })
-export class TrajetPageModule { }
+export class TrajetPageModule {
+
+}
