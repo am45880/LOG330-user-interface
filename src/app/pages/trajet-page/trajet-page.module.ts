@@ -3,9 +3,13 @@ import { CommonModule } from '@angular/common';
 import { TrajetPageComponent } from './trajet-page.component';
 import {MaterialModule} from "@angular/material";
 import {RouterModule} from "@angular/router";
+
 import { AgmCoreModule } from 'angular2-google-maps/core';
+import {GoogleMapsAPIWrapper} from 'angular2-google-maps/core';
+
 import {ReactiveFormsModule, FormsModule} from "@angular/forms";
 import {AuthGuard} from "../../shared/util/auth-guard";
+import {TrajetPageService} from "./trajet-page.service";
 
 @NgModule({
   imports: [
@@ -20,7 +24,8 @@ import {AuthGuard} from "../../shared/util/auth-guard";
       {path:"trajets/:camion",component:TrajetPageComponent,canActivate:[AuthGuard]}
     ])
   ],
-  declarations: [TrajetPageComponent]
+  declarations: [TrajetPageComponent],
+  providers:[GoogleMapsAPIWrapper,TrajetPageService]
 })
 export class TrajetPageModule {
 

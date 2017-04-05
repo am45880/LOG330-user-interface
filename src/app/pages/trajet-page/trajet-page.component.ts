@@ -4,6 +4,7 @@ import {Camion} from "../../shared/models/camion.model";
 import {ActivatedRoute} from "@angular/router";
 import {PointTrajet} from "../../shared/models/point-trajet.model";
 import {Observable} from "rxjs";
+import {TrajetPageService} from "./trajet-page.service";
 
 @Component({
   selector: 'app-trajet-page',
@@ -21,12 +22,13 @@ export class TrajetPageComponent implements OnInit {
   lat: number = 45.494669;
   lng: number = -73.563219;
 
-  constructor(private camionsService:CamionsService, private _route:ActivatedRoute) { }
+  constructor(private camionsService:CamionsService, private _route:ActivatedRoute,private _mapService: TrajetPageService) { }
 
   ngOnInit() {
     this.urlParameter=this._route.snapshot.params['camion'];
     this.camion$ = this.camionsService.getCamionByNom(this.urlParameter);
     this.updateCamion();
+    this.test();
   }
 
   updateCamion(){
@@ -55,6 +57,13 @@ export class TrajetPageComponent implements OnInit {
   supprimer(point:PointTrajet){
     this.camion.trajet.splice(this.camion.trajet.indexOf(point), 1)
   }
+
+  test(){
+    this._mapService.getLatLng("J4Z-0G3").subscribe(
+    (data: any) => console.log(data),
+    (err: any) => console.error(err));
+  }
+
 
 
 }

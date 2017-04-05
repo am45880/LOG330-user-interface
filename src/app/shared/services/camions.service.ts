@@ -1,4 +1,3 @@
-
 import { Injectable } from '@angular/core';
 import {Camion} from "../models/camion.model";
 import {PointTrajet} from "../models/point-trajet.model";
