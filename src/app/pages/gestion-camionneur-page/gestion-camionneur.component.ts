@@ -1,9 +1,11 @@
+///<reference path="../../../../node_modules/rxjs/Observable.d.ts"/>
 import { Component, OnInit } from '@angular/core';
 import {MdDialog} from "@angular/material";
 import {ConfirmDialogComponent} from "../../shared/components/confirm-dialog/confirm-dialog.component";
 import {CamionneursService} from "../../shared/services/camionneurs.service";
 import {Camionneur} from "../../shared/models/camionneur.model";
 import {ActivatedRoute} from "@angular/router";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-gestion-camionneur',
@@ -12,37 +14,38 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class GestionCamionneurComponent implements OnInit {
 
+  private camionneurs:Camionneur[];
 
-  camionneursAPI;
+  private camionneur$:Observable<Camionneur[]>;
 
-
- private camionneurs:Camionneur[] = [
-    {nom:"Smith",prenom:"Jerry", utilisateur:"jsmith",motDePasse:"secret123"},
-    {nom:"Leblanc",prenom:"Felix", utilisateur:"camio_champion",motDePasse:"secret123"},
-   {nom:"Tremblay",prenom:"George", utilisateur:"tamtamou",motDePasse:"secret123"}
-  ];
 
   constructor(private activate:ActivatedRoute,public dialog: MdDialog, public camionneurService: CamionneursService) { }
 
   ngOnInit() {
-    // this.camionneursAPI = this.camionneurService.getAllCamionneurFromAPI().subscribe(
-    //   res => this.camionneurs = res
-    // );
+    this.camionneur$=this.camionneurService.getAllCamionneurFromAPI();
+    this.updateCamionneurs();
   }
 
-  // removecamionneur(camionneur:Camionneur){
-  //   this.dialog.open(ConfirmDialogComponent);
-  //   this.camionneurService.removeFromCamionneurs(camionneur);
-  // }
-  //
-  // addCamionneur(camionneur:Camionneur){
-  //   this.camionneurService.addToCamionneurs(camionneur)
-  // }
-  //
-  // displayConfirmDialog(){
-  //   this.dialog.open(ConfirmDialogComponent)
-  // }
+  updateCamionneurs() {
+    this.camionneur$.subscribe(
+      res => {
+        this.camionneurs = res;
+      }
+    )
+  }
 
+  createCamionneur(nom:string,prenom:string,utilisateur:string,password:string) {
+    this.camionneurService.postNewCamionneur(nom, prenom, utilisateur, password).subscribe(
+      () => this.updateCamionneurs()
+    );
+  }
+
+   deleteCamionneur(utilisateur:string){
+     this.camionneurService.deleteCamionneur(utilisateur).subscribe(
+       ()=>this.updateCamionneurs(),
+       err=>console.log(err)
+     )
+   }
 
 
 }

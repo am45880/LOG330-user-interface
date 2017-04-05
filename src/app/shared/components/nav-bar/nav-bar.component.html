@@ -7,7 +7,7 @@
   <span class="spacer"></span>
 
 
-  <button md-icon-button [mdMenuTriggerFor]="menu">
+  <button md-icon-button [mdMenuTriggerFor]="menu" *ngIf="this._authService.utilisateurConnecte!=null">
     <md-icon>more_vert</md-icon>
   </button>
 
@@ -20,9 +20,9 @@
       </span>
     </button>
 
-    <button md-menu-item [routerLink]="['/login']">
+    <button md-menu-item [routerLink]="['/login']" (click)="this.deconnecter()">
       <md-icon>lock</md-icon>
-      <span class="black_span">
+      <span class="black_span" >
           Déconnecter
       </span>
     </button>

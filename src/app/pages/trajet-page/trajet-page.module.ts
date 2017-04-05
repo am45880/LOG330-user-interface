@@ -5,6 +5,7 @@ import {MaterialModule} from "@angular/material";
 import {RouterModule} from "@angular/router";
 import { AgmCoreModule } from 'angular2-google-maps/core';
 import {ReactiveFormsModule, FormsModule} from "@angular/forms";
+import {AuthGuard} from "../../shared/util/auth-guard";
 
 @NgModule({
   imports: [
@@ -16,7 +17,7 @@ import {ReactiveFormsModule, FormsModule} from "@angular/forms";
       apiKey:'AIzaSyArHxPHuvHILhyVyje6aA0mwpNIrD0BLtM'
     }),
     RouterModule.forChild([
-      {path:"trajets/:camion",component:TrajetPageComponent}
+      {path:"trajets/:camion",component:TrajetPageComponent,canActivate:[AuthGuard]}
     ])
   ],
   declarations: [TrajetPageComponent]

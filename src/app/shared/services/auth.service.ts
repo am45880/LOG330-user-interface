@@ -4,31 +4,22 @@ import {Http, Headers} from "@angular/http";
 @Injectable()
 export class AuthService implements OnInit{
 
-  IsLogged:boolean = false;
+  public utilisateurConnecte:string = "Backo";
 
-  constructor(private http:Http) { }
+  constructor(private _http:Http) { }
 
   ngOnInit(): void {
+
   }
 
-  authenticate(email:string, password:string){
-    let url = "http://localhost:8080/index";
-    let params = 'username='+email+'&password='+password;
-    let headers: Headers = new Headers(
-      {
-        'Content-Type': 'application/x-www-form-urlencoded'
-        // 'Access-Control-Allow-Credentials' : true
-      });
+  public authenticate(utilisateur:string,motDePasse:string){
+    let params ="utilisateur="+utilisateur+"&motDePasse="+motDePasse;
+    let url ="http://localhost:8080/auth/login";
+    let headers: Headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded'});
 
-    return this.http.post(url, params, {headers: headers, withCredentials : true});
-
+    return this._http.post(url,params,{headers:headers});
   }
 
 
 
-  //
-  // logout() {
-  //   let url = "http://localhost:8080/logout";
-  //   return this.http.get(url, { withCredentials: true });
-  // }
 }

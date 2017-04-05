@@ -1,39 +1,37 @@
 <md-card  id="card_add_point">
-    <md-card class="md-card_Point" *ngFor="let point of this.camion.trajet">
+    <md-card class="md-card_Point" *ngFor="let point of this.trajet">
+    <!--<md-card class="md-card_Point" *ngFor="let point of null">-->
 
       <form action="" class="stretched_form">
         <h2>Point {{point.ordre}}</h2>
 
         <md-input-container>
           <!--<input mdInput placeholder="Article" [(ngModel)]="point.article" [value]="point.article">-->
-          <input mdInput placeholder="Article" #article [value]="point.article">
+          <input mdInput placeholder="Article" name="article" #article [(ngModel)]="point.article"  [value]="point.article">
         </md-input-container>
 
         <md-input-container>
-          <input mdInput placeholder="Code postal" #codePostal [value]="point.codePostal">
+          <input mdInput placeholder="Code postal" name="codePostal" #codePostal [(ngModel)]="point.codePostal" [value]="point.codePostal">
           <!--<input mdInput placeholder="Code postal" [(ngModel)]="point.codePostal" [value]="point.codePostal">-->
         </md-input-container>
 
         <md-input-container>
           <!--<input mdInput placeholder="Temps estimé (hh:mm)" [(ngModel)]="point.tempsEstime" [value]="point.tempsEstime">-->
-          <input mdInput placeholder="Temps estimé (hh:mm)" #tempsEstime [value]="point.tempsEstime">
+          <input mdInput placeholder="Temps estimé (hh:mm)" name="tempsEstime" #tempsEstime [(ngModel)]="point.tempsEstime" [value]="point.tempsEstime">
         </md-input-container>
 
-        <button md-button class="boutonMauve" (click)="savePoint({article:article.value,codePostal:codePostal.value,tempEstime:tempsEstime.value})">
-        <!--<button md-button class="boutonMauve" (click)="savePoint(point)">-->
-        Sauvegarder
-        </button>
-
-        <button md-button class="btn_delete" (click)="removePointDeTrajet(point)">
+        <button md-button class="btn_delete" (click)="supprimer(point)">
           Supprimer
         </button>
       </form>
     </md-card>
 
-    <div id="btns_option_ajout_et_statistique">
-      <button style="width: 30%" md-button class="boutonMauve" (click)="ajouterPointDetrajet()">Ajouter</button>
-      <button style="width: 30%" md-button class="boutonMauve" [routerLink]="['/statistique']">Statistiques</button>
-    </div>
+
+      <button  md-button class="boutonMauve" (click)="ajouterPointDetrajet()">Ajouter</button>
+      <button  md-button class="boutonMauve" (click)="saveCamion()">Sauvegarder</button>
+      <button  md-button class="boutonMauve" [routerLink]="['/statistique']">Statistiques</button>
+
+
 
 </md-card>
 

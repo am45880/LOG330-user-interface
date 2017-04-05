@@ -6,6 +6,8 @@ import {MaterialModule} from "@angular/material";
 import {RouterModule} from "@angular/router";
 import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
 import {HttpModule} from "@angular/http";
+import {AuthService} from "./services/auth.service";
+import {AuthGuard} from "./util/auth-guard";
 
 @NgModule({
   imports: [
@@ -18,5 +20,6 @@ import {HttpModule} from "@angular/http";
   ],
   declarations: [NavBarComponent, ConfirmDialogComponent],
   exports : [NavBarComponent,ConfirmDialogComponent],
+  providers:[AuthService,AuthGuard]
 })
 export class SharedModule { }

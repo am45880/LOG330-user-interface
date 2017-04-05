@@ -6,6 +6,7 @@ import {RouterModule} from "@angular/router";
 import {SharedModule} from "../../shared/shared.module";
 import {ConfirmDialogComponent} from "../../shared/components/confirm-dialog/confirm-dialog.component";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {AuthGuard} from "../../shared/util/auth-guard";
 
 @NgModule({
   imports: [
@@ -14,7 +15,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     ReactiveFormsModule,
     FormsModule,
     RouterModule.forChild([
-      {path:"gestion_camion" , component:GestionCamionComponent}
+      {path:"gestion_camion" , component:GestionCamionComponent,canActivate:[AuthGuard]}
     ]),
     SharedModule
   ],

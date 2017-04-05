@@ -1,6 +1,6 @@
 <md-card id="card_add_point">
 
-  <form class="stretched_form" (submit)="addCamion({nom:nom.value,marque:marque.value,plaque:plaque.value})">
+  <form class="stretched_form" >
 
     <h1>Gestion de camion</h1>
 
@@ -16,7 +16,7 @@
       <input mdInput placeholder="Plaque" #plaque>
     </md-input-container>
 
-    <button class="boutonMauve" type="submit" md-button>
+    <button class="boutonMauve" type="button" md-button (click)="this.addCamion(nom.value,marque.value,plaque.value)">
       Ajouter
     </button>
 
@@ -24,13 +24,12 @@
 
 </md-card>
 
-
 <md-card id="card_back_les_camions">
-  <md-card *ngFor="let camion of camions">
+  <md-card *ngFor="let camion of this.camions">
     <h2>Camion : {{camion.nom}}</h2>
     <p>Marque : {{camion.marque}}</p>
     <p>Plaque : {{camion.plaque}}</p>
-    <button class="btn_delete" md-button (click)="this.removeCamion(camion)">
+    <button class="btn_delete" md-button (click)="this.deleteCamion(camion.nom)">
       Supprimer
     </button>
   </md-card>

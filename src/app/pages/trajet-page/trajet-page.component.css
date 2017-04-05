@@ -23,10 +23,6 @@ button{
   margin-bottom: 15px;
 }
 
-#btns_option_ajout_et_statistique{
-  display: flex;
-  justify-content: space-around;
-}
 
 /*----Section de la map----*/
 

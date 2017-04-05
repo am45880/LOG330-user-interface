@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import {Camion} from "../models/camion.model";
 import {PointTrajet} from "../models/point-trajet.model";
 import {findIndex} from "rxjs/operator/findIndex";
+import {Http, Headers} from "@angular/http";
 
 @Injectable()
 export class CamionsService {
@@ -36,30 +37,56 @@ export class CamionsService {
     }
   ];
 
-  addToCamionneurs(camion: Camion) {
-    this._camions.push(camion)
+  constructor(private _http:Http) { }
+
+  getAllCamions(){
+    let url ="http://localhost:8080/camion/all";
+    let headers: Headers = new Headers({
+      'Content-Type' : 'application/x-www-form-urlencoded'
+    });
+
+    return this._http.get(url,{headers:headers})
+      .map(res => res.json());
   }
 
+  getCamionByNom(nom:string){
+    let url ="http://localhost:8080/camion/camion_by_nom";
+    let params ="nom="+nom;
+    let headers: Headers = new Headers({
+      'Content-Type' : 'application/x-www-form-urlencoded'
+    });
 
-  removeFromCamionneurs(camion: Camion) {
-    this._camions.splice(this._camions.indexOf(camion), 1)
+    return this._http.post(url,params,{headers:headers})
+      .map(res=>res.json());
   }
 
-  removePointFromCamion(camion: Camion, point: PointTrajet) {
-    this.camions[this.camions.indexOf(camion)].trajet.splice(camion.trajet.indexOf(point), 1);
+  deleteCamions(nom:string){
+    let url ="http://localhost:8080/camion/delete";
+    let params ="nom="+nom;
+    let headers: Headers = new Headers({
+      'Content-Type' : 'application/x-www-form-urlencoded'
+    });
+
+    return this._http.post(url,params,{headers:headers});
   }
 
-  updatePointFromCamion(camion: Camion, point: PointTrajet){
-    this.camions[this.camions.indexOf(camion)].trajet[this.camions[this.camions.indexOf(camion)].trajet.indexOf(point)] = point;
-    console.log("Ce qui a été entré : "+
-      this.camions[this.camions.indexOf(camion)].trajet[this.camions[this.camions.indexOf(camion)].trajet.indexOf(point)].article);
+  addCamionneur(nom:string,marque:string,plaque:string){
+    let params ="nom="+nom+"&plaque="+plaque+"&marque="+marque;
+    let url ="http://localhost:8080/camion";
+    let headers: Headers = new Headers({
+      'Content-Type' : 'application/x-www-form-urlencoded'
+    });
+
+    return this._http.post(url,params,{headers:headers});
   }
 
+  saveCamion(camion:Camion){
+    let url ="http://localhost:8080/camion/save";
+    let headers: Headers = new Headers({
+      'Content-Type' : 'application/json'
+    });
 
-  get camions(): Camion[] {
-    return this._camions;
+   return this._http.post(url, JSON.stringify(camion), {headers:headers});
   }
-
-  constructor() { }
 
 }

@@ -3,6 +3,7 @@ import {MdDialog} from "@angular/material";
 import {ConfirmDialogComponent} from "../../shared/components/confirm-dialog/confirm-dialog.component";
 import {CamionsService} from "../../shared/services/camions.service";
 import {Camion} from "../../shared/models/camion.model";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-gestion-camion',
@@ -11,22 +12,39 @@ import {Camion} from "../../shared/models/camion.model";
 })
 export class GestionCamionComponent implements OnInit {
 
-   camions:Camion[] = [];
+   camions:Camion[];
+   private camion$:Observable<any>;
 
   constructor(public dialog: MdDialog, private camionsService: CamionsService) {
   }
 
   ngOnInit() {
-    this.camions = this.camionsService.camions;
-   }
+    this.camion$= this.camionsService.getAllCamions();
+    this.displayCamion();
+  }
 
-   removeCamion(camion:Camion){
-     this.dialog.open(ConfirmDialogComponent);
-     this.camionsService.removeFromCamionneurs(camion);
-   }
+  displayCamion(){
+    this.camion$.subscribe(
+      res => this.camions = res,
+      err => console.log(err)
+    );
+  }
 
-  addCamion(camion:Camion){
-    this.camionsService.addToCamionneurs(camion)
+  deleteCamion(nom:string){
+    this.camionsService.deleteCamions(nom).subscribe(
+      ()=>this.displayCamion(),
+       err => console.log(err)
+    );
+
+  }
+
+
+  addCamion(nom:string,marque:string,plaque:string){
+    this.camionsService.addCamionneur(nom,marque,plaque).subscribe(
+      () => this.displayCamion(),
+      err => console.log(err)
+    );
+
   }
 
   displayConfirmDialog(){

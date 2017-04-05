@@ -9,17 +9,26 @@ import {Router} from "@angular/router";
 })
 export class HomePageComponent implements OnInit {
 
-  camions = []
+  private camions = []
+  private camion$
 
   constructor(private camionsService: CamionsService, private router:Router) { }
 
   ngOnInit() {
-    this.camions = this.camionsService.camions;
+    this.camion$ = this.camionsService.getAllCamions();
+    this.updateCamion();
+
   }
 
   goToPage(url:string){
     this.router.navigate(["/trajets/"+url]);
   }
 
+  updateCamion(){
+    this.camion$.subscribe(
+      res => this.camions=res
+    );
+
+  }
 
 }

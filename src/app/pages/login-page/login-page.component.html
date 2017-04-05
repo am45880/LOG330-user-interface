@@ -6,14 +6,14 @@
     </h2>
 
     <md-input-container>
-      <input mdInput placeholder="Nom d'utilisateur">
+      <input mdInput placeholder="Nom d'utilisateur" #utilisateur>
     </md-input-container>
     <md-input-container>
-      <input mdInput placeholder="Mot de passe" type="password">
+      <input mdInput placeholder="Mot de passe" type="password" #motDePasse>
     </md-input-container>
 
     <div>
-      <button md-button [routerLink]="['/home']">
+      <button md-button (click)="this.authentifier(utilisateur.value,motDePasse.value);">
         Connecter
       </button>
     </div>

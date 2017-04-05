@@ -19,20 +19,21 @@
       </md-input-container>
 
       <md-input-container>
-        <input mdInput placeholder="Confirmer mot de passe" type="password">
+        <input mdInput placeholder="Confirmer mot de passe" type="password" #password>
       </md-input-container>
 
-    <button class="boutonMauve" md-button type="submit">
+    <button class="boutonMauve" md-button type="button" (click)="this.createCamionneur(nom.value,prenom.value,utilisateur.value,password.value)">
       Ajouter
     </button>
   </form>
 </md-card>
 
 <md-card id="card_back_les_camions">
-  <md-card *ngFor="let camionneur of camionneurs">
+  <!--<md-card *ngFor="let camionneur of getCamioneurs()">-->
+  <md-card *ngFor="let camionneur of this.camionneurs">
     <h2>{{camionneur.prenom}} {{camionneur.nom}}</h2>
     <p>@{{camionneur.utilisateur}}</p>
-    <button md-button class="btn_delete" (click)="removecamionneur(camionneur)">
+    <button md-button class="btn_delete" (click)="this.deleteCamionneur(camionneur.utilisateur)">
       Supprimer
     </button>
   </md-card>
