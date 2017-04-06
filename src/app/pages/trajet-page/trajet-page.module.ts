@@ -9,7 +9,7 @@ import {GoogleMapsAPIWrapper} from 'angular2-google-maps/core';
 
 import {ReactiveFormsModule, FormsModule} from "@angular/forms";
 import {AuthGuard} from "../../shared/util/auth-guard";
-import {TrajetPageService} from "./trajet-page.service";
+import {TrajetPageService} from './trajet-page.service';
 
 @NgModule({
   imports: [

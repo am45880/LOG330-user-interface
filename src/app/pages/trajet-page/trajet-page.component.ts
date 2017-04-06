@@ -5,6 +5,7 @@ import {ActivatedRoute} from "@angular/router";
 import {PointTrajet} from "../../shared/models/point-trajet.model";
 import {Observable} from "rxjs";
 import {TrajetPageService} from "./trajet-page.service";
+import {GoogleMapsAPIWrapper} from "angular2-google-maps/core";
 
 @Component({
   selector: 'app-trajet-page',
@@ -22,13 +23,16 @@ export class TrajetPageComponent implements OnInit {
   lat: number = 45.494669;
   lng: number = -73.563219;
 
-  constructor(private camionsService:CamionsService, private _route:ActivatedRoute,private _mapService: TrajetPageService) { }
+  constructor(private camionsService:CamionsService, private _route:ActivatedRoute,private _mapService: TrajetPageService,
+  private gmapsApi: GoogleMapsAPIWrapper) { }
 
   ngOnInit() {
     this.urlParameter=this._route.snapshot.params['camion'];
     this.camion$ = this.camionsService.getCamionByNom(this.urlParameter);
     this.updateCamion();
-    this.test();
+    // this.test();
+
+
   }
 
   updateCamion(){
@@ -58,11 +62,11 @@ export class TrajetPageComponent implements OnInit {
     this.camion.trajet.splice(this.camion.trajet.indexOf(point), 1)
   }
 
-  test(){
-    this._mapService.getLatLng("J4Z-0G3").subscribe(
-    (data: any) => console.log(data),
-    (err: any) => console.error(err));
-  }
+  // test(){
+  //   this._mapService.getLatLng("J4Z-0G3").subscribe(
+  //   (data: any) => console.log(data),
+  //   (err: any) => console.error(err));
+  // }
 
 
 

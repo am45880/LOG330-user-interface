@@ -4,7 +4,7 @@ import {Http, Headers} from "@angular/http";
 @Injectable()
 export class AuthService implements OnInit{
 
-  public utilisateurConnecte:string = "Backo";
+  public utilisateurConnecte:string;
 
   constructor(private _http:Http) { }
 
